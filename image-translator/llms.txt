@@ -1,0 +1,22 @@
+# Image Translator
+
+> Free Chrome extension that translates the text in any image in the browser — manga, memes, screenshots, product photos, signs, charts, scanned documents — and draws the translation over the picture in a side panel. Text recognition (PaddleOCR models on WebGPU) and translation (Chrome's built-in on-device Translator) run on the user's computer: no server, no account, no API key, nothing uploaded, works offline.
+
+- Install: Chrome Web Store (coming soon)
+- Use: Alt+Shift+S selects an area of the page; Alt+Shift+A translates the visible tab; right-click an image → "Translate image"; paste a screenshot (Ctrl+V) or drop an image file into the panel.
+- Languages: reads text in 36 languages (English, Russian, Ukrainian, Bulgarian, German, French, Spanish, Italian, Portuguese, Dutch, Polish, Czech, Slovak, Slovenian, Croatian, Hungarian, Romanian, Lithuanian, Danish, Swedish, Norwegian, Finnish, Turkish, Indonesian, Vietnamese, Greek, Chinese (Simplified and Traditional), Japanese, Korean, Arabic, Hindi, Marathi, Thai, Tamil and Telugu); translates into 39 (plus Hebrew, Bengali and Kannada). Vertical Japanese and Chinese are supported.
+- Measured on a MacBook Air M3 in Chrome 155.0.8059.82 (2026-10-18): a typical picture is recognized and translated in 0.3 s (median); 99.3% of printed characters read correctly in 14 tested Latin-, Cyrillic- and Greek-script languages (Vietnamese aside), Chinese and Japanese; 95.6% of words found on 70 real scanned forms (XFUND); translation from pictures scores 46.3 chrF++ against 49.1 for the same text without recognition errors.
+- Requirements: desktop Chrome 138 or newer on Windows, macOS or Linux; a WebGPU graphics card is recommended. About 120 MB, plus about 80 MB per translation language pack, downloaded by Chrome once.
+- Limitations: cannot read Hebrew, Bengali or Kannada text yet; Vietnamese tone marks are not always recognized; handwriting is recognized only partially; Chrome does not allow capturing chrome:// pages, the Chrome Web Store or DRM-protected video.
+- Privacy: no data collected; no analytics, no ads, no server. The only download is the picture the user chooses, from the address the page loads it from.
+
+## Pages
+
+- [Overview and documentation](https://vanyattka.github.io/image-translator/): features, languages, comparison with cloud translators, limitations, requirements, FAQ
+- [Translate manga and webtoons](https://vanyattka.github.io/image-translator/translate-manga.html)
+- [Translate product photos on AliExpress, Taobao, 1688](https://vanyattka.github.io/image-translator/translate-product-photos.html)
+- [Translate screenshots and memes](https://vanyattka.github.io/image-translator/translate-screenshots.html)
+- [Offline image translator that never uploads pictures](https://vanyattka.github.io/image-translator/offline-image-translator.html)
+- [Benchmark: accuracy and speed per language](https://vanyattka.github.io/image-translator/benchmark.html)
+- [Privacy policy](https://vanyattka.github.io/image-translator/privacy.html)
+- [По-русски](https://vanyattka.github.io/image-translator/ru/)

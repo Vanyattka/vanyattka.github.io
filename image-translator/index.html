@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Image Translator — translate text in any image in Chrome, on your computer</title>
+<meta name="description" content="Free Chrome extension: translate the text in manga, memes, screenshots and product photos right over the picture. Recognition and translation run on your computer — no account, no upload, works offline.">
+<link rel="canonical" href="https://vanyattka.github.io/image-translator/">
+<link rel="alternate" hreflang="en" href="https://vanyattka.github.io/image-translator/">
+<link rel="alternate" hreflang="ru" href="https://vanyattka.github.io/image-translator/ru/">
+<link rel="alternate" hreflang="x-default" href="https://vanyattka.github.io/image-translator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Image Translator">
+<meta property="og:title" content="Image Translator — translate text in any image in Chrome, on your computer">
+<meta property="og:description" content="Free Chrome extension: translate the text in manga, memes, screenshots and product photos right over the picture. Recognition and translation run on your computer — no account, no upload, works offline.">
+<meta property="og:url" content="https://vanyattka.github.io/image-translator/">
+<meta property="og:image" content="https://vanyattka.github.io/image-translator/img/marquee.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#120e20">
+<link rel="icon" href="icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="icon-128.png">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Image Translator","description":"Free Chrome extension that translates the text in any image — manga, memes, screenshots, product photos — and draws the translation over the picture in a side panel. Text recognition and translation run on the user's computer: no server, no account, nothing uploaded.","applicationCategory":"BrowserApplication","operatingSystem":"Windows, macOS, Linux — desktop Chrome 138 or newer","softwareVersion":"0.1.0","fileSize":"120MB","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://vanyattka.github.io/image-translator/","screenshot":["https://vanyattka.github.io/image-translator/img/1-hero.png","https://vanyattka.github.io/image-translator/img/2-area.png","https://vanyattka.github.io/image-translator/img/3-right-click.png","https://vanyattka.github.io/image-translator/img/4-private.png"],"featureList":["Translate the text in any image in Chrome: select an area, capture the tab, right-click an image, or paste a screenshot","Translation drawn over the picture, keeping colors, angle and layout","Reads 36 languages, including vertical Japanese and Chinese; translates into 39","Runs on the user's computer: PaddleOCR models on WebGPU and Chrome's built-in on-device translator","No account, no API key, no limits; works offline"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I translate text in an image in Chrome?","acceptedAnswer":{"@type":"Answer","text":"Right-click the image and choose “Translate image”, or press Alt+Shift+S (⌥⇧S on Mac) and select the part of the page with the text. The translation appears over the picture in the side panel."}},{"@type":"Question","name":"Is there an image translator that works offline and doesn't upload my pictures?","acceptedAnswer":{"@type":"Answer","text":"Yes — this one. Recognition and translation run on your computer; after Chrome has downloaded the language packs, it works without the internet. How it stays private."}},{"@type":"Question","name":"Can it translate manga and webtoons?","acceptedAnswer":{"@type":"Answer","text":"Yes. It reads vertical Japanese text in speech bubbles in the right order, as well as Korean and Chinese comics. Select a panel or a whole page. Translating manga, step by step."}},{"@type":"Question","name":"How do I translate Chinese text on AliExpress or Taobao product photos?","acceptedAnswer":{"@type":"Answer","text":"Right-click the product photo and choose “Translate image”. The photo is taken in full resolution, so small print on labels and size charts is readable. More on product photos."}},{"@type":"Question","name":"Can I translate a screenshot?","acceptedAnswer":{"@type":"Answer","text":"Yes. Copy it and press Ctrl+V (⌘V on Mac) in the panel, or drag the image file into it. More on screenshots and memes."}},{"@type":"Question","name":"Is it free? Are there limits?","acceptedAnswer":{"@type":"Answer","text":"Yes, it is free, with no limits, no account and no API key. Everything runs on your own computer, so there is nothing to meter."}},{"@type":"Question","name":"Why does Chrome ask me to download a language pack?","acceptedAnswer":{"@type":"Answer","text":"Translation is done by Chrome's built-in translator. The first time a language pair is used, Chrome downloads its pack and keeps it — after that, the pair works offline. Chrome only allows this download after a click, so the panel shows a button for it."}},{"@type":"Question","name":"Why is the extension about 120 MB?","acceptedAnswer":{"@type":"Answer","text":"That is the text recognition models — they live inside the extension so that nothing has to be sent to a server."}},{"@type":"Question","name":"Does it collect any data?","acceptedAnswer":{"@type":"Answer","text":"No. There is no server, no analytics and no ads; only your language settings are stored, on your computer. See the privacy policy."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="./"><img src="icon-32.png" width="32" height="32" alt="">Image Translator</a>
+  <nav class="links"><a href="#how">How it works</a><a href="benchmark.html">Benchmark</a><a href="privacy.html">Privacy</a></nav>
+  <span class="btn soon sm" title="Coming soon to the Chrome Web Store">Coming soon to the Chrome Web Store</span>
+</div></header>
+<main class="wrap">
+
+<section class="hero">
+  <h1>Translate text in any image in Chrome</h1>
+  <p class="lead">Manga pages, memes, screenshots, product photos, signs, charts and scanned documents. Image Translator draws the translation right over the picture, in a side panel next to the page. Recognition and translation run on your computer, so nothing is uploaded.</p>
+  <ul class="chips"><li>Free</li><li>No account</li><li>No API key</li><li>Nothing uploaded</li><li>Works offline</li></ul>
+  <p class="actions"><span class="btn soon " title="Coming soon to the Chrome Web Store">Coming soon to the Chrome Web Store</span><a class="btn" href="#how">How it works</a></p>
+  <img class="shot" src="img/1-hero.png" width="1280" height="800" alt="The Image Translator side panel next to a café website: a Japanese promo card translated into English, drawn over the original picture">
+</section>
+
+<section>
+  <h2>Who it is for</h2>
+  <div class="cards">
+    <a class="card" href="translate-manga.html"><h3>Manga and webtoons</h3><p>Vertical Japanese text in speech bubbles, Korean webtoons, Chinese manhua — read in your language, page by page.</p><span class="more">Translate manga →</span></a>
+    <a class="card" href="translate-product-photos.html"><h3>Online shopping</h3><p>Chinese, Japanese and Korean product photos, size charts and labels on AliExpress, Taobao, 1688, Temu or Amazon Japan.</p><span class="more">Translate product photos →</span></a>
+    <a class="card" href="translate-screenshots.html"><h3>Memes and screenshots</h3><p>Image posts on Reddit, X, Instagram, Pinterest, Telegram Web or Discord, and screenshots of chats, apps and games.</p><span class="more">Translate screenshots →</span></a>
+    <div class="card"><h3>Travel</h3><p>Photos of street signs, menus, timetables and notices — taken at an angle, in a hurry.</p></div>
+    <div class="card"><h3>Study and work</h3><p>Charts, slides, infographics and scanned documents in a language you don't read.</p></div>
+    <a class="card" href="offline-image-translator.html"><h3>Private by design</h3><p>No server, no account, no upload. Works offline once Chrome has the language packs.</p><span class="more">How it stays private →</span></a>
+  </div>
+  <p>It is not tied to one website: if a picture is on your screen, it can be translated.</p>
+</section>
+
+<section id="how">
+  <h2>How to use it</h2>
+  <div class="ways">
+    <div class="way"><h3>Select an area</h3><p>Press <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> (<kbd>⌥⇧S</kbd> on Mac) and drag a frame over any part of the page: a speech bubble, a chart, a frame of a paused video.</p></div>
+    <div class="way"><h3>Capture the tab</h3><p><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> translates everything visible on the screen.</p></div>
+    <div class="way"><h3>Right-click an image</h3><p>Choose “Translate image”: the picture is taken in full resolution, even if the page shows it small.</p></div>
+    <div class="way"><h3>Paste or drop</h3><p>Paste a screenshot with <kbd>Ctrl</kbd>+<kbd>V</kbd> (<kbd>⌘V</kbd>) or drag an image file into the panel.</p></div>
+  </div>
+  <img class="shot" src="img/2-area.png" width="1280" height="800" alt="Selecting an area of a Chinese social media post with a frame; the side panel shows the English translation" loading="lazy">
+  <p>The panel shows the picture with the translation drawn over the original text, keeping its colors, angle and layout. Press and hold the picture to see the original. Below it, each text block is listed with its translation and the original; hover one to highlight it on the picture, or copy the whole translation with one click.</p>
+</section>
+
+<section>
+  <h2>What it does well</h2>
+  <ul class="ticks">
+    <li>Understands vertical Japanese and Chinese text, rotated and tilted signs, and pages with several columns.</li>
+    <li>Joins the lines of a paragraph before translating, so sentences are translated whole, not line by line.</li>
+    <li>Detects the language of the picture by itself — or you can choose it.</li>
+    <li>Takes right-clicked images in full resolution; very large pictures are handled too.</li>
+    <li>Works offline once Chrome has the language packs you use.</li>
+  </ul>
+  <img class="shot" src="img/3-right-click.png" width="1280" height="800" alt="Right-click menu on a Korean sign with the “Translate image” item; the side panel shows the translation" loading="lazy">
+</section>
+
+<section id="measured">
+  <h2>Measured, not promised</h2>
+  <p>We test every version on 648 images in 27 languages, made from the FLORES-200 translation benchmark, and on 70 real scanned forms from the XFUND dataset. On a MacBook Air M3 in Chrome 155.0.8059.82:</p>
+  <div class="stats">
+    <div class="stat"><b>0.3 s</b><span>to recognize and translate a typical picture (median). Recognition alone: about 0.1 s on the graphics card, 0.3 s on the processor.</span></div>
+    <div class="stat"><b>99.3%</b><span>of printed characters read correctly in the 14 tested languages written in Latin, Cyrillic or Greek letters (Vietnamese aside), Chinese and Japanese.</span></div>
+    <div class="stat"><b>95.6%</b><span>of words found and read correctly on 70 real scanned forms in Chinese, Japanese, German, French, Spanish, Italian and Portuguese.</span></div>
+    <div class="stat"><b>−2.8</b><span>chrF++ points of translation quality lost to reading the picture: 46.3 against 49.1 for the same text with no recognition errors.</span></div>
+  </div>
+  <p><a href="benchmark.html">Full results per language and per kind of picture →</a></p>
+</section>
+
+<section>
+  <h2>How it compares with cloud image translators</h2>
+  
+<div class="scroll"><table class="cmp">
+  <thead><tr><th></th><th>Image Translator</th><th>Cloud image translators</th></tr></thead>
+  <tbody>
+    <tr><th>Where your picture goes</th><td class="yes">Stays on your computer</td><td>Uploaded to their servers</td></tr>
+    <tr><th>Account, API key</th><td class="yes">Not needed</td><td>Often required</td></tr>
+    <tr><th>Price and limits</th><td class="yes">Free, no limits</td><td>Free tier with daily limits, or paid</td></tr>
+    <tr><th>Without internet</th><td class="yes">Works offline</td><td>Needs a connection</td></tr>
+    <tr><th>Handwriting</th><td>Partial</td><td class="yes">Usually better</td></tr>
+    <tr><th>Hebrew, Bengali, Kannada text</th><td>Can't read yet</td><td class="yes">Usually supported</td></tr>
+  </tbody>
+</table></div>
+</section>
+
+<section id="languages">
+  <h2>Languages</h2>
+  <p><b>Reads text in 36 languages:</b> English, Russian, Ukrainian, Bulgarian, German, French, Spanish, Italian, Portuguese, Dutch, Polish, Czech, Slovak, Slovenian, Croatian, Hungarian, Romanian, Lithuanian, Danish, Swedish, Norwegian, Finnish, Turkish, Indonesian, Vietnamese, Greek, Chinese (Simplified and Traditional), Japanese, Korean, Arabic, Hindi, Marathi, Thai, Tamil and Telugu.</p>
+  <p><b>Translates into 39 languages:</b> all of the above plus Hebrew, Bengali and Kannada.</p>
+</section>
+
+<section>
+  <h2>Under the hood</h2>
+  <ul>
+    <li><b>Text recognition:</b> PaddleOCR models (PP-OCRv6 and PP-OCRv5) packed inside the extension and run by ONNX Runtime on your graphics card through WebGPU, or on the processor without one.</li>
+    <li><b>Translation and language detection:</b> Chrome's built-in on-device Translator and Language Detector (Chrome 138 and newer).</li>
+    <li><b>Nothing leaves your computer:</b> no servers, no analytics, no ads. The only thing the extension downloads is the picture you choose, from the address the page already loads it from; language packs are downloaded by Chrome itself.</li>
+  </ul>
+  <img class="shot" src="img/4-private.png" width="1280" height="800" alt="Diagram: picture → recognition on your graphics card → Chrome’s built-in translator, all on your computer; a German meme translated in the side panel" loading="lazy">
+</section>
+
+<section>
+  <h2>Limitations</h2>
+  
+<ul>
+  <li>Hebrew, Bengali and Kannada text cannot be read yet (translation into these languages works).</li>
+  <li>Vietnamese tone marks are not always recognized; complex scripts such as Arabic, Thai or Telugu occasionally lose a letter.</li>
+  <li>Handwriting is recognized only partially.</li>
+  <li>Chrome does not allow capturing its own pages (chrome://), the Chrome Web Store or DRM-protected video.</li>
+</ul>
+</section>
+
+<section>
+  <h2>System requirements</h2>
+  <ul>
+    <li>Desktop Chrome 138 or newer on Windows, macOS or Linux.</li>
+    <li>A graphics card with WebGPU is recommended (most laptops of recent years); without one, recognition runs on the processor.</li>
+    <li>About 120 MB for the extension and about 80 MB for each translation language you use.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Getting started</h2>
+  <p>On first launch, a short tour translates a sample sign and shows where pictures come from. You can also download Chrome's language packs in advance there, so later translations start instantly.</p>
+</section>
+
+<section id="faq">
+  <h2>Frequently asked questions</h2>
+  <div class="qa"><h3>How do I translate text in an image in Chrome?</h3><p>Right-click the image and choose “Translate image”, or press <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> (<kbd>⌥⇧S</kbd> on Mac) and select the part of the page with the text. The translation appears over the picture in the side panel.</p></div>
+  <div class="qa"><h3>Is there an image translator that works offline and doesn't upload my pictures?</h3><p>Yes — this one. Recognition and translation run on your computer; after Chrome has downloaded the language packs, it works without the internet. <a href="offline-image-translator.html">How it stays private</a>.</p></div>
+  <div class="qa"><h3>Can it translate manga and webtoons?</h3><p>Yes. It reads vertical Japanese text in speech bubbles in the right order, as well as Korean and Chinese comics. Select a panel or a whole page. <a href="translate-manga.html">Translating manga, step by step</a>.</p></div>
+  <div class="qa"><h3>How do I translate Chinese text on AliExpress or Taobao product photos?</h3><p>Right-click the product photo and choose “Translate image”. The photo is taken in full resolution, so small print on labels and size charts is readable. <a href="translate-product-photos.html">More on product photos</a>.</p></div>
+  <div class="qa"><h3>Can I translate a screenshot?</h3><p>Yes. Copy it and press <kbd>Ctrl</kbd>+<kbd>V</kbd> (<kbd>⌘V</kbd> on Mac) in the panel, or drag the image file into it. <a href="translate-screenshots.html">More on screenshots and memes</a>.</p></div>
+  <div class="qa"><h3>Is it free? Are there limits?</h3><p>Yes, it is free, with no limits, no account and no API key. Everything runs on your own computer, so there is nothing to meter.</p></div>
+  <div class="qa"><h3>Why does Chrome ask me to download a language pack?</h3><p>Translation is done by Chrome's built-in translator. The first time a language pair is used, Chrome downloads its pack and keeps it — after that, the pair works offline. Chrome only allows this download after a click, so the panel shows a button for it.</p></div>
+  <div class="qa"><h3>Why is the extension about 120 MB?</h3><p>That is the text recognition models — they live inside the extension so that nothing has to be sent to a server.</p></div>
+  <div class="qa"><h3>Does it collect any data?</h3><p>No. There is no server, no analytics and no ads; only your language settings are stored, on your computer. See the <a href="privacy.html">privacy policy</a>.</p></div>
+</section>
+
+<section class="cta">
+  <span class="btn soon " title="Coming soon to the Chrome Web Store">Coming soon to the Chrome Web Store</span>
+  <p class="note">Free · No account · Desktop Chrome 138+ on Windows, macOS, Linux</p>
+</section>
+</main>
+<footer><div class="wrap">
+  <nav><a href="./">Overview</a><a href="translate-manga.html">Translate manga</a><a href="translate-product-photos.html">Translate product photos</a><a href="translate-screenshots.html">Translate screenshots</a><a href="offline-image-translator.html">Offline image translator</a><a href="benchmark.html">Benchmark</a><a href="privacy.html">Privacy policy</a><a href="ru/">Русский</a></nav>
+  <p>Image Translator is an independent extension, not affiliated with Google. Chrome is a trademark of Google LLC. Version 0.1.0.</p>
+</div></footer>
+</body>
+</html>

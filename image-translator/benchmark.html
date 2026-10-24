@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benchmark: accuracy and speed of Image Translator, per language</title>
+<meta name="description" content="How Image Translator is tested: 648 images in 27 languages built from FLORES-200 and 70 real scanned forms from XFUND. Translation quality, recognition errors and speed per language, on a MacBook Air M3 in Chrome 155.0.8059.82.">
+<link rel="canonical" href="https://vanyattka.github.io/image-translator/benchmark.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Image Translator">
+<meta property="og:title" content="Benchmark: accuracy and speed of Image Translator, per language">
+<meta property="og:description" content="How Image Translator is tested: 648 images in 27 languages built from FLORES-200 and 70 real scanned forms from XFUND. Translation quality, recognition errors and speed per language, on a MacBook Air M3 in Chrome 155.0.8059.82.">
+<meta property="og:url" content="https://vanyattka.github.io/image-translator/benchmark.html">
+<meta property="og:image" content="https://vanyattka.github.io/image-translator/img/marquee.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#120e20">
+<link rel="icon" href="icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="icon-128.png">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="./"><img src="icon-32.png" width="32" height="32" alt="">Image Translator</a>
+  <nav class="links"><a href="./#how">How it works</a><a href="benchmark.html">Benchmark</a><a href="privacy.html">Privacy</a></nav>
+  <span class="btn soon sm" title="Coming soon to the Chrome Web Store">Coming soon to the Chrome Web Store</span>
+</div></header>
+<main class="wrap">
+
+<section class="hero">
+  <h1>How we measure Image Translator</h1>
+  <p class="lead">Every version is tested before release. We measure what you actually read — the translation of the picture — not only the recognized text. All numbers below come from one run on 2026-10-18: MacBook Air M3, Chrome 155.0.8059.82, recognition on the graphics card (WebGPU), build 0.1.0.</p>
+</section>
+
+<section>
+  <h2>Test sets</h2>
+  <ul>
+    <li><b>Synthetic pictures from FLORES-200.</b> FLORES-200 is the same set of sentences translated by people into 200 languages (Meta, CC BY-SA 4.0). We render them in Chrome, with system fonts, as 8 kinds of pictures — 27 languages × 8 kinds × 3 samples = 648 images. The sentences and layouts are the same in every language, so languages can be compared with each other. Hebrew and Bengali are included on purpose: the extension can't read them yet, and the test shows it; they are not in the averages.</li>
+    <li><b>Real scans from XFUND.</b> 70 scanned forms — 10 each in Chinese, Japanese, German, French, Spanish, Italian and Portuguese — with handwritten fields, tables and stamps.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Measures</h2>
+  <ul>
+    <li><b>Translation chrF++</b> — the translation of the picture against the human translation from FLORES-200: character n-grams up to 6 and word pairs, β = 2, case-insensitive, checked against sacrebleu. The main number.</li>
+    <li><b>Ceiling</b> — the same Chrome translator on the error-free text of the picture. Ceiling minus translation (<b>loss</b>) is everything that recognition and layout cost; the ceiling itself is a property of Chrome's translator.</li>
+    <li><b>CER</b> — character error rate of recognition against the text on the picture (for Chinese, Japanese and Thai without spaces).</li>
+    <li><b>Real scans</b> have no human translation, so there we measure how much of the translation is kept (chrF++ against the translation of the error-free text) and words as a bag against the dataset's annotation: F1, recall (share of words found) and precision.</li>
+    <li><b>Time</b> — median per picture, from the image bytes to the translation: decoding, text detection, script probe (in automatic mode), line recognition, translation.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Results by language</h2>
+  <p>Translation into Russian (for Russian pictures — into English), language of the picture given. With automatic language detection the overall result is the same: 46.3 chrF++.</p>
+  
+<div class="scroll"><table class="num">
+  <thead><tr><th>Language</th><th>Translation chrF++</th><th>Ceiling</th><th>Loss</th><th>CER %</th><th>Time, ms</th></tr></thead>
+  <tbody>
+    <tr class="all"><th>All readable languages</th><td>46.3</td><td>49.1</td><td>2.8</td><td>1.9</td><td>286</td></tr>
+    <tr><th>English</th><td>56.3</td><td>57.4</td><td>1.1</td><td>0.2</td><td>448</td></tr>
+    <tr><th>German</th><td>55.1</td><td>55.2</td><td>0.0</td><td>0.1</td><td>537</td></tr>
+    <tr><th>French</th><td>51.9</td><td>52.2</td><td>0.3</td><td>0.3</td><td>279</td></tr>
+    <tr><th>Spanish</th><td>46.2</td><td>46.4</td><td>0.2</td><td>0.0</td><td>222</td></tr>
+    <tr><th>Italian</th><td>45.9</td><td>46.5</td><td>0.6</td><td>0.1</td><td>267</td></tr>
+    <tr><th>Portuguese</th><td>50.9</td><td>54.1</td><td>3.3</td><td>0.4</td><td>254</td></tr>
+    <tr><th>Polish</th><td>47.8</td><td>48.7</td><td>0.9</td><td>0.7</td><td>258</td></tr>
+    <tr><th>Czech</th><td>51.5</td><td>52.3</td><td>0.8</td><td>0.6</td><td>205</td></tr>
+    <tr><th>Turkish</th><td>49.5</td><td>50.0</td><td>0.5</td><td>1.8</td><td>263</td></tr>
+    <tr><th>Vietnamese</th><td>29.7</td><td>47.8</td><td>18.1</td><td>11.6</td><td>355</td></tr>
+    <tr><th>Indonesian</th><td>47.3</td><td>47.3</td><td>0.0</td><td>0.1</td><td>206</td></tr>
+    <tr><th>Russian</th><td>60.8</td><td>61.0</td><td>0.3</td><td>0.9</td><td>323</td></tr>
+    <tr><th>Ukrainian</th><td>51.5</td><td>53.8</td><td>2.3</td><td>2.6</td><td>398</td></tr>
+    <tr><th>Bulgarian</th><td>50.8</td><td>53.8</td><td>3.0</td><td>1.3</td><td>399</td></tr>
+    <tr><th>Greek</th><td>45.9</td><td>46.7</td><td>0.8</td><td>0.9</td><td>488</td></tr>
+    <tr><th>Chinese (Simplified)</th><td>45.0</td><td>45.5</td><td>0.5</td><td>0.1</td><td>155</td></tr>
+    <tr><th>Chinese (Traditional)</th><td>41.4</td><td>42.3</td><td>0.9</td><td>1.0</td><td>205</td></tr>
+    <tr><th>Japanese</th><td>43.7</td><td>44.9</td><td>1.2</td><td>0.2</td><td>230</td></tr>
+    <tr><th>Korean</th><td>40.3</td><td>44.1</td><td>3.8</td><td>5.3</td><td>333</td></tr>
+    <tr><th>Arabic</th><td>38.7</td><td>51.5</td><td>12.7</td><td>6.5</td><td>250</td></tr>
+    <tr><th>Hindi</th><td>46.2</td><td>47.0</td><td>0.8</td><td>2.4</td><td>299</td></tr>
+    <tr><th>Marathi</th><td>40.2</td><td>44.4</td><td>4.2</td><td>2.7</td><td>304</td></tr>
+    <tr><th>Thai</th><td>39.9</td><td>44.6</td><td>4.7</td><td>1.2</td><td>306</td></tr>
+    <tr><th>Tamil</th><td>41.1</td><td>44.1</td><td>3.1</td><td>2.6</td><td>373</td></tr>
+    <tr><th>Telugu</th><td>40.7</td><td>46.7</td><td>5.9</td><td>3.6</td><td>315</td></tr>
+    <tr><th>Hebrew</th><td>2.4</td><td>51.0</td><td>48.6</td><td>90.8</td><td>886</td></tr>
+    <tr><th>Bengali</th><td>2.9</td><td>44.2</td><td>41.3</td><td>86.6</td><td>1786</td></tr>
+  </tbody>
+</table></div>
+  <p>Median time per picture: 286 ms (90th percentile 627 ms), of which recognition 130 ms and translation 81 ms.</p>
+</section>
+
+<section id="styles">
+  <h2>Results by kind of picture</h2>
+  
+<div class="scroll"><table class="num">
+  <thead><tr><th>Kind of picture</th><th>Translation chrF++</th><th>Ceiling</th><th>Loss</th><th>CER %</th><th>Time, ms</th></tr></thead>
+  <tbody>
+    <tr class="all"><th>All kinds</th><td>46.3</td><td>49.1</td><td>2.8</td><td>1.9</td><td>286</td></tr>
+    <tr><th>Banner — large bold text on a plate or gradient</th><td>48.0</td><td>50.3</td><td>2.3</td><td>2.5</td><td>130</td></tr>
+    <tr><th>Meme — white outlined text over a photo, often in capitals</th><td>50.7</td><td>54.1</td><td>3.4</td><td>2.6</td><td>170</td></tr>
+    <tr><th>Screenshot — a 14–16 px paragraph, like a feed</th><td>47.9</td><td>51.2</td><td>3.3</td><td>1.6</td><td>379</td></tr>
+    <tr><th>Retina screenshot — the same at 2×</th><td>45.9</td><td>48.1</td><td>2.2</td><td>1.3</td><td>421</td></tr>
+    <tr><th>Promo card — text over a shadow or a plate on colored shapes</th><td>40.0</td><td>41.2</td><td>1.2</td><td>1.1</td><td>123</td></tr>
+    <tr><th>Photo of a sign — at an angle, in perspective, with grain and blur</th><td>51.7</td><td>54.0</td><td>2.3</td><td>1.6</td><td>138</td></tr>
+    <tr><th>Social post — a heading and a paragraph</th><td>45.9</td><td>47.9</td><td>2.0</td><td>1.7</td><td>529</td></tr>
+    <tr><th>Low quality — downscaled to 72–85% and recompressed as JPEG</th><td>43.8</td><td>48.3</td><td>4.5</td><td>2.9</td><td>343</td></tr>
+  </tbody>
+</table></div>
+</section>
+
+<section>
+  <h2>Speed of recognition</h2>
+  <div class="stats">
+    <div class="stat"><b>79 ms</b><span>recognition per picture on the graphics card (WebGPU), median. 90% of pictures take under 185 ms in total.</span></div>
+    <div class="stat"><b>275 ms</b><span>recognition per picture on the processor (WebAssembly), median. 90% of pictures take under 649 ms in total.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Real scanned forms (XFUND)</h2>
+  
+<div class="scroll"><table class="num">
+  <thead><tr><th>Language</th><th>Translation kept, chrF++</th><th>Words F1</th><th>Recall</th><th>Precision</th><th>Time, ms</th></tr></thead>
+  <tbody>
+    <tr class="all"><th>All</th><td>69.9</td><td>95.6</td><td>95.6</td><td>95.6</td><td>2584</td></tr>
+    <tr><th>Chinese (Simplified)</th><td>63.4</td><td>98.0</td><td>98.3</td><td>97.6</td><td>2283</td></tr>
+    <tr><th>Japanese</th><td>64.1</td><td>92.9</td><td>91.4</td><td>94.4</td><td>2734</td></tr>
+    <tr><th>German</th><td>69.9</td><td>97.5</td><td>96.6</td><td>98.4</td><td>1932</td></tr>
+    <tr><th>French</th><td>73.9</td><td>96.2</td><td>95.7</td><td>96.6</td><td>1497</td></tr>
+    <tr><th>Spanish</th><td>77.7</td><td>98.4</td><td>98.2</td><td>98.5</td><td>3264</td></tr>
+    <tr><th>Italian</th><td>74.2</td><td>92.3</td><td>95.1</td><td>89.7</td><td>3815</td></tr>
+    <tr><th>Portuguese</th><td>67.3</td><td>95.7</td><td>94.9</td><td>96.6</td><td>3437</td></tr>
+  </tbody>
+</table></div>
+  <p>Median time per form: 2584 ms, of which recognition 955 ms and translation 819 ms.</p>
+</section>
+
+<section>
+  <h2>Known weak spots</h2>
+  <ul>
+    <li><b>Vietnamese</b> — the recognizer's alphabet lacks some tone-marked letters, so translation loses 18.1 points.</li>
+    <li><b>Arabic</b> loses 12.7 points; <b>Telugu</b> 5.9, <b>Thai</b> 4.7, <b>Marathi</b> 4.2, <b>Korean</b> 3.8.</li>
+    <li><b>Hebrew and Bengali</b> can't be read yet; Kannada is not in the test and can't be read either.</li>
+    <li><b>Handwriting</b> is recognized only partially.</li>
+  </ul>
+</section>
+
+<section class="cta">
+  <span class="btn soon " title="Coming soon to the Chrome Web Store">Coming soon to the Chrome Web Store</span>
+  <p class="note">Free · No account · Desktop Chrome 138+ on Windows, macOS, Linux</p>
+</section>
+</main>
+<footer><div class="wrap">
+  <nav><a href="./">Overview</a><a href="translate-manga.html">Translate manga</a><a href="translate-product-photos.html">Translate product photos</a><a href="translate-screenshots.html">Translate screenshots</a><a href="offline-image-translator.html">Offline image translator</a><a href="benchmark.html">Benchmark</a><a href="privacy.html">Privacy policy</a><a href="ru/">Русский</a></nav>
+  <p>Image Translator is an independent extension, not affiliated with Google. Chrome is a trademark of Google LLC. Version 0.1.0.</p>
+</div></footer>
+</body>
+</html>

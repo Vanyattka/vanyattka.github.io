@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Перевод картинок — переводит текст на любой картинке в Chrome, прямо на компьютере</title>
+<meta name="description" content="Бесплатное расширение Chrome: переводит текст на манге, мемах, скриншотах и фото товаров прямо поверх картинки. Распознавание и перевод — на вашем компьютере, без регистрации и загрузки.">
+<link rel="canonical" href="https://vanyattka.github.io/image-translator/ru/">
+<link rel="alternate" hreflang="en" href="https://vanyattka.github.io/image-translator/">
+<link rel="alternate" hreflang="ru" href="https://vanyattka.github.io/image-translator/ru/">
+<link rel="alternate" hreflang="x-default" href="https://vanyattka.github.io/image-translator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Image Translator">
+<meta property="og:title" content="Перевод картинок — переводит текст на любой картинке в Chrome, прямо на компьютере">
+<meta property="og:description" content="Бесплатное расширение Chrome: переводит текст на манге, мемах, скриншотах и фото товаров прямо поверх картинки. Распознавание и перевод — на вашем компьютере, без регистрации и загрузки.">
+<meta property="og:url" content="https://vanyattka.github.io/image-translator/ru/">
+<meta property="og:image" content="https://vanyattka.github.io/image-translator/img/ru-marquee.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#120e20">
+<link rel="icon" href="../icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../icon-128.png">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Перевод картинок (Image Translator)","description":"Free Chrome extension that translates the text in any image — manga, memes, screenshots, product photos — and draws the translation over the picture in a side panel. Text recognition and translation run on the user's computer: no server, no account, nothing uploaded.","applicationCategory":"BrowserApplication","operatingSystem":"Windows, macOS, Linux — desktop Chrome 138 or newer","softwareVersion":"0.1.0","fileSize":"120MB","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://vanyattka.github.io/image-translator/ru/","screenshot":["https://vanyattka.github.io/image-translator/img/1-hero.png","https://vanyattka.github.io/image-translator/img/2-area.png","https://vanyattka.github.io/image-translator/img/3-right-click.png","https://vanyattka.github.io/image-translator/img/4-private.png"],"featureList":["Translate the text in any image in Chrome: select an area, capture the tab, right-click an image, or paste a screenshot","Translation drawn over the picture, keeping colors, angle and layout","Reads 36 languages, including vertical Japanese and Chinese; translates into 39","Runs on the user's computer: PaddleOCR models on WebGPU and Chrome's built-in on-device translator","No account, no API key, no limits; works offline"],"inLanguage":"ru"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Как перевести текст на картинке в Chrome?","acceptedAnswer":{"@type":"Answer","text":"Нажмите на картинку правой кнопкой и выберите «Перевести картинку» или нажмите Alt+Shift+S (⌥⇧S на Mac) и выделите часть страницы с текстом. Перевод появится поверх картинки в боковой панели."}},{"@type":"Question","name":"Есть ли переводчик картинок, который работает без интернета и никуда не загружает фото?","acceptedAnswer":{"@type":"Answer","text":"Да — этот. Распознавание и перевод идут на вашем компьютере; когда Chrome скачал словари, всё работает без интернета."}},{"@type":"Question","name":"Можно ли переводить мангу и вебтуны?","acceptedAnswer":{"@type":"Answer","text":"Да. Расширение читает вертикальный японский текст в «облачках» в правильном порядке, а также корейские и китайские комиксы. Выделите кадр или всю страницу."}},{"@type":"Question","name":"Как перевести китайский текст на фото товара с AliExpress или Taobao?","acceptedAnswer":{"@type":"Answer","text":"Нажмите на фото товара правой кнопкой и выберите «Перевести картинку». Фото берётся в полном разрешении, поэтому мелкий текст на этикетках и в таблицах размеров читается."}},{"@type":"Question","name":"Можно ли перевести скриншот?","acceptedAnswer":{"@type":"Answer","text":"Да. Скопируйте его и нажмите Ctrl+V (⌘V на Mac) в панели или перетащите файл картинки в неё."}},{"@type":"Question","name":"Это бесплатно? Есть ли лимиты?","acceptedAnswer":{"@type":"Answer","text":"Да, бесплатно, без лимитов, без регистрации и без API-ключа. Всё работает на вашем компьютере — считать нечего."}},{"@type":"Question","name":"Почему Chrome просит скачать словарь?","acceptedAnswer":{"@type":"Answer","text":"Переводит встроенный переводчик Chrome. Когда пара языков нужна впервые, Chrome скачивает её словарь и хранит у себя — дальше эта пара работает без интернета. Скачивать Chrome разрешает только по нажатию, поэтому в панели для этого есть кнопка."}},{"@type":"Question","name":"Почему расширение весит около 120 МБ?","acceptedAnswer":{"@type":"Answer","text":"Это модели распознавания текста: они лежат внутри расширения, чтобы ничего не нужно было отправлять на сервер."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="./"><img src="../icon-32.png" width="32" height="32" alt="">Перевод картинок</a>
+  <nav class="links"><a href="#how">Как пользоваться</a><a href="../benchmark.html">Замеры (англ.)</a><a href="../privacy.html">Конфиденциальность</a></nav>
+  <span class="btn soon sm" title="Скоро в Chrome Web Store">Скоро в Chrome Web Store</span>
+</div></header>
+<main class="wrap">
+
+<section class="hero">
+  <h1>Перевод текста на любой картинке в Chrome</h1>
+  <p class="lead">Страницы манги, мемы, скриншоты, фото товаров, вывески, графики и сканы документов. Расширение рисует перевод прямо поверх картинки, в боковой панели рядом со страницей. Распознавание и перевод идут на вашем компьютере — ничего не загружается.</p>
+  <ul class="chips"><li>Бесплатно</li><li>Без регистрации</li><li>Без API-ключа</li><li>Без загрузки</li><li>Без интернета</li></ul>
+  <p class="actions"><span class="btn soon " title="Скоро в Chrome Web Store">Скоро в Chrome Web Store</span><a class="btn" href="#how">Как пользоваться</a></p>
+  <img class="shot" src="../img/ru-1-hero.png" width="1280" height="800" alt="Боковая панель «Перевода картинок» рядом с сайтом кафе: японская промо-карточка переведена на русский поверх оригинала">
+</section>
+
+<section>
+  <h2>Кому подойдёт</h2>
+  <div class="cards">
+    <div class="card"><h3>Манга и вебтуны</h3><p>Вертикальный японский текст в «облачках», корейские вебтуны, китайская маньхуа — читаете на своём языке, страница за страницей.</p></div>
+    <div class="card"><h3>Покупки</h3><p>Китайские, японские и корейские фото товаров, таблицы размеров и этикетки на AliExpress, Taobao, 1688, Pinduoduo и Amazon Japan.</p></div>
+    <div class="card"><h3>Мемы и скриншоты</h3><p>Посты-картинки в Telegram, VK, Reddit, X и Pinterest, скриншоты чатов, приложений и игр.</p></div>
+    <div class="card"><h3>Путешествия</h3><p>Фото вывесок, меню, расписаний и объявлений — снятые наспех и под углом.</p></div>
+    <div class="card"><h3>Учёба и работа</h3><p>Графики, слайды, инфографика и сканы документов на незнакомом языке.</p></div>
+    <div class="card"><h3>Приватно по устройству</h3><p>Ни сервера, ни аккаунта, ни загрузки. Работает без интернета, когда у Chrome есть словари.</p></div>
+  </div>
+  <p>Расширение не привязано к одному сайту: если картинка на экране, её можно перевести.</p>
+</section>
+
+<section id="how">
+  <h2>Как пользоваться</h2>
+  <div class="ways">
+    <div class="way"><h3>Выделить область</h3><p><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> (<kbd>⌥⇧S</kbd> на Mac) и рамка мышью вокруг любой части страницы: «облачка» с репликой, графика, кадра остановленного видео.</p></div>
+    <div class="way"><h3>Снимок вкладки</h3><p><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> переводит всё, что видно на экране.</p></div>
+    <div class="way"><h3>Правый клик по картинке</h3><p>«Перевести картинку»: картинка берётся в полном разрешении, даже если страница показывает её уменьшенной.</p></div>
+    <div class="way"><h3>Вставить или перетащить</h3><p>Скриншот из буфера — <kbd>Ctrl</kbd>+<kbd>V</kbd> (<kbd>⌘V</kbd>), или файл картинки прямо в панель.</p></div>
+  </div>
+  <img class="shot" src="../img/ru-2-area.png" width="1280" height="800" alt="Выделение области китайского поста рамкой; в боковой панели — перевод на русский" loading="lazy">
+  <p>Панель показывает картинку с переводом поверх оригинального текста — с теми же цветами, под тем же углом и в той же вёрстке. Зажмите картинку — увидите оригинал. Под ней — каждый блок текста с переводом и оригиналом: наведите на блок, и он подсветится на картинке; весь перевод копируется одной кнопкой.</p>
+</section>
+
+<section>
+  <h2>Что умеет хорошо</h2>
+  <ul class="ticks">
+    <li>Понимает вертикальный японский и китайский текст, повёрнутые и наклонённые вывески, страницы в несколько колонок.</li>
+    <li>Перед переводом склеивает строки абзаца, чтобы предложения переводились целиком, а не по строчке.</li>
+    <li>Сам определяет язык картинки — или его можно выбрать.</li>
+    <li>Картинки по правому клику берёт в полном разрешении; справляется и с очень большими.</li>
+    <li>Работает без интернета, когда у Chrome есть словари нужных языков.</li>
+  </ul>
+</section>
+
+<section id="measured">
+  <h2>Измерено, а не обещано</h2>
+  <p>Каждую версию мы проверяем на 648 тестовых картинках на 27 языках, собранных из теста машинного перевода FLORES-200, и на 70 настоящих сканах анкет из набора XFUND. На MacBook Air M3 в Chrome 155.0.8059.82:</p>
+  <div class="stats">
+    <div class="stat"><b>0,3 с</b><span>на распознавание и перевод обычной картинки (медиана). Само распознавание — около 0,1 с на видеокарте и 0,3 с на процессоре.</span></div>
+    <div class="stat"><b>99,3%</b><span>печатных символов читаются верно в 14 проверяемых языках на латинице, кириллице и греческом алфавите (кроме вьетнамского), а также в китайском и японском.</span></div>
+    <div class="stat"><b>95,6%</b><span>слов найдены и прочитаны правильно на 70 настоящих сканах анкет на семи языках.</span></div>
+    <div class="stat"><b>−2,8</b><span>пункта chrF++ стоит чтение картинки: 46,3 против 49,1 у того же текста без ошибок распознавания.</span></div>
+  </div>
+  <p><a href="../benchmark.html">Все результаты по языкам и видам картинок (англ.) →</a></p>
+</section>
+
+<section>
+  <h2>Чем отличается от облачных переводчиков картинок</h2>
+  <div class="scroll"><table class="cmp">
+    <thead><tr><th></th><th>«Перевод картинок»</th><th>Облачные переводчики</th></tr></thead>
+    <tbody>
+      <tr><th>Куда уходит картинка</th><td class="yes">Остаётся на компьютере</td><td>Загружается на их серверы</td></tr>
+      <tr><th>Аккаунт, API-ключ</th><td class="yes">Не нужны</td><td>Часто нужны</td></tr>
+      <tr><th>Цена и лимиты</th><td class="yes">Бесплатно, без лимитов</td><td>Бесплатно с дневным лимитом или платно</td></tr>
+      <tr><th>Без интернета</th><td class="yes">Работает</td><td>Нужна сеть</td></tr>
+      <tr><th>Рукописный текст</th><td>Частично</td><td class="yes">Обычно лучше</td></tr>
+      <tr><th>Иврит, бенгальский, каннада</th><td>Пока не читает</td><td class="yes">Обычно читают</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="languages">
+  <h2>Языки</h2>
+  <p><b>Читает текст на 36 языках:</b> английском, русском, украинском, болгарском, немецком, французском, испанском, итальянском, португальском, нидерландском, польском, чешском, словацком, словенском, хорватском, венгерском, румынском, литовском, датском, шведском, норвежском, финском, турецком, индонезийском, вьетнамском, греческом, китайском (упрощённом и традиционном), японском, корейском, арабском, хинди, маратхи, тайском, тамильском и телугу.</p>
+  <p><b>Переводит на 39 языков:</b> на все перечисленные, а также на иврит, бенгальский и каннада.</p>
+</section>
+
+<section>
+  <h2>Как это устроено</h2>
+  <ul>
+    <li><b>Распознавание текста:</b> модели PaddleOCR (PP-OCRv6 и PP-OCRv5) лежат внутри расширения и работают через ONNX Runtime на вашей видеокарте по WebGPU, а без неё — на процессоре.</li>
+    <li><b>Перевод и определение языка:</b> встроенные в Chrome переводчик и определитель языка, которые работают прямо на устройстве (Chrome 138 и новее).</li>
+    <li><b>Ничего не уходит с компьютера:</b> ни серверов, ни аналитики, ни рекламы. Расширение скачивает только выбранную вами картинку — с того же адреса, откуда её уже загружает страница; словари скачивает сам Chrome.</li>
+  </ul>
+  <img class="shot" src="../img/ru-4-private.png" width="1280" height="800" alt="Схема: картинка → распознавание на видеокарте → встроенный переводчик Chrome, всё на вашем компьютере" loading="lazy">
+</section>
+
+<section>
+  <h2>Ограничения</h2>
+  <ul>
+    <li>Текст на иврите, бенгальском и каннада пока не распознаётся (перевод на эти языки работает).</li>
+    <li>Тоны во вьетнамском распознаются не всегда; в сложных письменностях — арабской, тайской, телугу — иногда теряется буква.</li>
+    <li>Рукописный текст распознаётся лишь частично.</li>
+    <li>Chrome не разрешает снимать свои страницы (chrome://), магазин расширений и видео с защитой DRM.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Системные требования</h2>
+  <ul>
+    <li>Chrome 138 или новее на компьютере с Windows, macOS или Linux.</li>
+    <li>Желательна видеокарта с WebGPU (есть у большинства ноутбуков последних лет); без неё распознавание идёт на процессоре.</li>
+    <li>Около 120 МБ на само расширение и около 80 МБ на каждый язык перевода.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>С чего начать</h2>
+  <p>При первом запуске короткое знакомство переведёт пример — табличку — и покажет, откуда брать картинки. Там же можно заранее скачать словари Chrome, чтобы потом перевод начинался сразу.</p>
+</section>
+
+<section id="faq">
+  <h2>Частые вопросы</h2>
+  <div class="qa"><h3>Как перевести текст на картинке в Chrome?</h3><p>Нажмите на картинку правой кнопкой и выберите «Перевести картинку» или нажмите <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> (<kbd>⌥⇧S</kbd> на Mac) и выделите часть страницы с текстом. Перевод появится поверх картинки в боковой панели.</p></div>
+  <div class="qa"><h3>Есть ли переводчик картинок, который работает без интернета и никуда не загружает фото?</h3><p>Да — этот. Распознавание и перевод идут на вашем компьютере; когда Chrome скачал словари, всё работает без интернета.</p></div>
+  <div class="qa"><h3>Можно ли переводить мангу и вебтуны?</h3><p>Да. Расширение читает вертикальный японский текст в «облачках» в правильном порядке, а также корейские и китайские комиксы. Выделите кадр или всю страницу.</p></div>
+  <div class="qa"><h3>Как перевести китайский текст на фото товара с AliExpress или Taobao?</h3><p>Нажмите на фото товара правой кнопкой и выберите «Перевести картинку». Фото берётся в полном разрешении, поэтому мелкий текст на этикетках и в таблицах размеров читается.</p></div>
+  <div class="qa"><h3>Можно ли перевести скриншот?</h3><p>Да. Скопируйте его и нажмите <kbd>Ctrl</kbd>+<kbd>V</kbd> (<kbd>⌘V</kbd> на Mac) в панели или перетащите файл картинки в неё.</p></div>
+  <div class="qa"><h3>Это бесплатно? Есть ли лимиты?</h3><p>Да, бесплатно, без лимитов, без регистрации и без API-ключа. Всё работает на вашем компьютере — считать нечего.</p></div>
+  <div class="qa"><h3>Почему Chrome просит скачать словарь?</h3><p>Переводит встроенный переводчик Chrome. Когда пара языков нужна впервые, Chrome скачивает её словарь и хранит у себя — дальше эта пара работает без интернета. Скачивать Chrome разрешает только по нажатию, поэтому в панели для этого есть кнопка.</p></div>
+  <div class="qa"><h3>Почему расширение весит около 120 МБ?</h3><p>Это модели распознавания текста: они лежат внутри расширения, чтобы ничего не нужно было отправлять на сервер.</p></div>
+</section>
+
+<section class="cta">
+  <span class="btn soon " title="Скоро в Chrome Web Store">Скоро в Chrome Web Store</span>
+  <p class="note">Бесплатно · Без регистрации · Chrome 138+ на Windows, macOS, Linux</p>
+</section>
+</main>
+<footer><div class="wrap">
+  <nav><a href="./">О расширении</a><a href="../">English</a><a href="../benchmark.html">Замеры (англ.)</a><a href="../privacy.html">Политика конфиденциальности (англ.)</a></nav>
+  <p>Image Translator — независимое расширение, не связанное с Google. Chrome — товарный знак Google LLC. Version 0.1.0.</p>
+</div></footer>
+</body>
+</html>

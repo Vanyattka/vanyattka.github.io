@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Offline image translator that never uploads your pictures — Image Translator for Chrome</title>
+<meta name="description" content="Image Translator recognizes and translates the text in pictures on your own computer: no server, no account, no upload. Works offline once Chrome has the language packs.">
+<link rel="canonical" href="https://vanyattka.github.io/image-translator/offline-image-translator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Image Translator">
+<meta property="og:title" content="Offline image translator that never uploads your pictures — Image Translator for Chrome">
+<meta property="og:description" content="Image Translator recognizes and translates the text in pictures on your own computer: no server, no account, no upload. Works offline once Chrome has the language packs.">
+<meta property="og:url" content="https://vanyattka.github.io/image-translator/offline-image-translator.html">
+<meta property="og:image" content="https://vanyattka.github.io/image-translator/img/marquee.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#120e20">
+<link rel="icon" href="icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="icon-128.png">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does Image Translator upload my images?","acceptedAnswer":{"@type":"Answer","text":"No. Images, the recognized text and the translations stay on your computer. The extension has no server and sends nothing anywhere."}},{"@type":"Question","name":"Does it work without internet?","acceptedAnswer":{"@type":"Answer","text":"Yes, once Chrome has downloaded the language packs you use. Pictures already on screen and pasted screenshots are then translated offline."}},{"@type":"Question","name":"Can I use it for confidential documents?","acceptedAnswer":{"@type":"Answer","text":"The extension processes documents on your computer and doesn't send them anywhere. As with any software, follow your organization's rules for confidential data."}},{"@type":"Question","name":"What is Chrome's built-in translator?","acceptedAnswer":{"@type":"Answer","text":"Since version 138, desktop Chrome has built-in on-device translation (the Translator API); the model for each language is downloaded by Chrome the first time it is needed. Image Translator uses it, so the translation quality is Chrome's own and the language packs are managed by Chrome."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="./"><img src="icon-32.png" width="32" height="32" alt="">Image Translator</a>
+  <nav class="links"><a href="./#how">How it works</a><a href="benchmark.html">Benchmark</a><a href="privacy.html">Privacy</a></nav>
+  <span class="btn soon sm" title="Coming soon to the Chrome Web Store">Coming soon to the Chrome Web Store</span>
+</div></header>
+<main class="wrap">
+
+<section class="hero">
+  <h1>An image translator that works offline and never uploads your pictures</h1>
+  <p class="lead">Most image translators send your picture to a server. Image Translator doesn't have one. Text recognition runs inside the extension on your graphics card, and translation is done by Chrome's built-in on-device translator. Your pictures, the recognized text and the translations stay on your computer.</p>
+  <p class="actions"><span class="btn soon " title="Coming soon to the Chrome Web Store">Coming soon to the Chrome Web Store</span></p>
+</section>
+
+<section>
+  <h2>What happens when you translate a picture</h2>
+  <ol class="steps">
+    <li>The picture comes from your screen (a selected area or the visible tab), from your clipboard, or — when you right-click an image — from the address the page already loads it from.</li>
+    <li>PaddleOCR models packed inside the extension find and read the lines of text, on your graphics card through WebGPU, or on the processor.</li>
+    <li>Chrome's built-in Translator — on-device translation, part of Chrome since version 138 — translates the text.</li>
+    <li>The panel draws the translation over the picture. Nothing is kept: only your language settings are stored, on your computer.</li>
+  </ol>
+  <img class="shot" src="img/4-private.png" width="1280" height="800" alt="Diagram: picture → recognition on your graphics card → Chrome’s built-in translator, all on your computer" loading="lazy">
+</section>
+
+<section>
+  <h2>Getting ready to work offline</h2>
+  <p>Chrome downloads the translation model for a language pair the first time you use it — about 80 MB per language, once. The first-run tour lets you download the packs you need in advance. After that, recognition and translation work without the internet. You still need a connection to open web pages, of course, but pictures already on screen and pasted screenshots are translated offline.</p>
+</section>
+
+<section>
+  <h2>Check it yourself</h2>
+  <p>Open <code>chrome://extensions</code>, turn on Developer mode and click “Inspect views” next to Image Translator's side panel. The Network tab lists the extension's own files and, if you right-clicked an image, that image loaded from its address — nothing else.</p>
+</section>
+
+<section>
+  <h2>Compared with cloud image translators</h2>
+  
+<div class="scroll"><table class="cmp">
+  <thead><tr><th></th><th>Image Translator</th><th>Cloud image translators</th></tr></thead>
+  <tbody>
+    <tr><th>Where your picture goes</th><td class="yes">Stays on your computer</td><td>Uploaded to their servers</td></tr>
+    <tr><th>Account, API key</th><td class="yes">Not needed</td><td>Often required</td></tr>
+    <tr><th>Price and limits</th><td class="yes">Free, no limits</td><td>Free tier with daily limits, or paid</td></tr>
+    <tr><th>Without internet</th><td class="yes">Works offline</td><td>Needs a connection</td></tr>
+    <tr><th>Handwriting</th><td>Partial</td><td class="yes">Usually better</td></tr>
+    <tr><th>Hebrew, Bengali, Kannada text</th><td>Can't read yet</td><td class="yes">Usually supported</td></tr>
+  </tbody>
+</table></div>
+</section>
+
+<section>
+  <h2>Limitations</h2>
+  
+<ul>
+  <li>Hebrew, Bengali and Kannada text cannot be read yet (translation into these languages works).</li>
+  <li>Vietnamese tone marks are not always recognized; complex scripts such as Arabic, Thai or Telugu occasionally lose a letter.</li>
+  <li>Handwriting is recognized only partially.</li>
+  <li>Chrome does not allow capturing its own pages (chrome://), the Chrome Web Store or DRM-protected video.</li>
+</ul>
+</section>
+
+<section id="faq">
+  <h2>Frequently asked questions</h2>
+  <div class="qa"><h3>Does Image Translator upload my images?</h3><p>No. Images, the recognized text and the translations stay on your computer. The extension has no server and sends nothing anywhere.</p></div>
+  <div class="qa"><h3>Does it work without internet?</h3><p>Yes, once Chrome has downloaded the language packs you use. Pictures already on screen and pasted screenshots are then translated offline.</p></div>
+  <div class="qa"><h3>Can I use it for confidential documents?</h3><p>The extension processes documents on your computer and doesn't send them anywhere. As with any software, follow your organization's rules for confidential data.</p></div>
+  <div class="qa"><h3>What is Chrome's built-in translator?</h3><p>Since version 138, desktop Chrome has built-in on-device translation (the Translator API); the model for each language is downloaded by Chrome the first time it is needed. Image Translator uses it, so the translation quality is Chrome's own and the language packs are managed by Chrome.</p></div>
+</section>
+
+<section class="cta">
+  <span class="btn soon " title="Coming soon to the Chrome Web Store">Coming soon to the Chrome Web Store</span>
+  <p class="note">Free · No account · Desktop Chrome 138+ on Windows, macOS, Linux</p>
+</section>
+</main>
+<footer><div class="wrap">
+  <nav><a href="./">Overview</a><a href="translate-manga.html">Translate manga</a><a href="translate-product-photos.html">Translate product photos</a><a href="translate-screenshots.html">Translate screenshots</a><a href="offline-image-translator.html">Offline image translator</a><a href="benchmark.html">Benchmark</a><a href="privacy.html">Privacy policy</a><a href="ru/">Русский</a></nav>
+  <p>Image Translator is an independent extension, not affiliated with Google. Chrome is a trademark of Google LLC. Version 0.1.0.</p>
+</div></footer>
+</body>
+</html>
